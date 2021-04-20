@@ -1,11 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, TextInput  } from 'react-native';
 
 export default function App() {
+
+  const [Price,setPrice] = useState("");
+
+  const [Disc,setDisc] = useState("");
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <TextInput style={styles.input} onChangeText={setPrice} value={Price} placeholder="Enter Price" keyboardType="numeric"/>
+      <TextInput style={styles.input} onChangeText={setDisc} value={Disc} placeholder="Enter Discount %" keyboardType="numeric"/>
       <StatusBar style="auto" />
     </View>
   );
@@ -18,4 +24,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+  },
+
 });
